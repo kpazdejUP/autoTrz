@@ -1,0 +1,28 @@
+body {
+    background-image: url("mercedes.jpg");
+    background-size: cover;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main {
+    background-color: rgba(255, 255, 255, 0.637);
+    width: 800px;
+    margin: auto;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: white;
+}
+
+.row {
+    margin: 20px;
+    padding: 10px;
+}
+
+#cenaS {
+    font-size: 25px;
+    font-weight: bolder;
+    color: rgb(128, 128, 12);
+}

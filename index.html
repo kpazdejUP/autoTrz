@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konfigurator samochodu</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function Start() {
+            cenaA = 100000;
+            document.getElementById("cenaS").innerHTML = "Twoja cena: " + cenaA + "zł";
+        }
+
+        function Fcena() {
+            let cena = cenaA;
+            let n1 = document.getElementById("n1").checked;
+            let n2 = document.getElementById("n2").checked;
+            let n3 = document.getElementById("n3").checked;
+            if (n2) {
+                cena = cena * 1.3;
+            }
+            if (n3) {
+                cena = cena * 1.1;
+            }
+            let sil = document.getElementById("silnik").value;
+            if (sil == "d") {
+                cena = cena + 2000;
+            }
+            if (sil == "e") {
+                cena = cena + 20000;
+            }
+            if (sil == "h") {
+                cena = cena + 40000;
+            }
+            let kl = document.getElementById("kl").checked;
+            let ts = document.getElementById("ts").checked;
+            let te = document.getElementById("te").checked;
+            if (kl) {
+                cena = cena + 2000;
+            }
+            if (ts) {
+                cena = cena + 3000;
+            }
+            if (te) {
+                cena = cena + 800;
+            }
+
+
+            cena = Math.round(cena);
+            document.getElementById("cenaS").innerHTML = "Twoja cena: " + cena + "zł";
+        }
+    </script>
+</head>
+
+<body onload="Start()">
+    <header>
+        <h1>Wybierz konfigurację samochodu</h1>
+    </header>
+    <main>
+        <div id="cenaS">100000</div>
+        <form action="mailto:katarzyna.pazdej@gmail.com" enctype="text/plain" method="POST">
+            <div class="row">
+                <fieldset>
+                    <legend>Rodzaj nadwozia</legend>
+                    <input type="radio" name="nadwozie" id="n1" value="1" onchange="Fcena()">Hatchback
+                    <input type="radio" name="nadwozie" id="n2" value="2" onchange="Fcena()">Kabriolet
+                    <input type="radio" name="nadwozie" id="n3" value="3" onchange="Fcena()">Sedan
+
+                </fieldset>
+            </div>
+            <div class="row">
+                <label for="silnik">Rodzaj silnika</label>
+                <select name="silnik" id="silnik" onchange="Fcena()">
+                    <option value="d">diesel</option>
+                    <option value="b">benzyna</option>
+                    <option value="e">elektryczny</option>
+                    <option value="h">hybryda</option>
+                </select>
+            </div>
+            <div class="row">
+                <input type="checkbox" name="klimatyzacja" id="kl" onchange="Fcena()">Klimatyzacja
+                <input type="checkbox" name="ts" id="ts" onchange="Fcena()">Tapicerka skórzana
+                <input type="checkbox" name="te" id="te" onchange="Fcena()">Tempomat
+                <input type="checkbox" name="cp" id="cp" onchange="Fcena()">Czujniki parkowania
+                <br>
+                <input type="checkbox" name="sl" id="sl" onchange="Fcena()">Składane lusterka
+                <input type="checkbox" name="ll" id="ll" onchange="Fcena()">Lampy ledowe
+                <input type="checkbox" name="ab" id="ab" onchange="Fcena()">ABS
+                <input type="checkbox" name="of" id="of" onchange="Fcena()">Ogrzewane fotele
+
+            </div>
+            <div class="row">
+                <input type="text">Podaj imię i nazwisko <br>
+                <input type="email">Podaj adres e-mail <br>
+                <input type="tel">Podaj numer telefonu <br>
+            </div>
+            <div class="row">
+                <label for="">Kolor lakieru</label>
+                <input type="color" name="" id="">
+            </div>
+            <div class="row">
+                Uwagi <br>
+                <textarea name="" id="" cols="60" rows="5"></textarea>
+            </div>
+            <div class="row">
+                <input type="submit" value="Zamów">
+                <input type="reset" value="Wyczyść">
+            </div>
+
+        </form>
+    </main>
+
+</body>
+
+</html>
